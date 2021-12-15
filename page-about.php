@@ -16,7 +16,8 @@
 get_header();
 ?>
 
-<section class="home-slider owl-carousel img" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
+<section class="home-slider owl-carousel img"
+  style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
 
   <div class="slider-item" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
     <div class="overlay"></div>
@@ -34,18 +35,7 @@ get_header();
 
 <?php get_template_part('template-parts/content-infos'); ?>
 
-</section>
-<section class="ftco-about d-md-flex">
-  <div class="one-half img" style="background-image: url(<?php echo get_field('about_section')['about_us_image']['url']; ?>);"></div>
-  <div class="one-half ftco-animate">
-    <div class="heading-section ftco-animate ">
-      <h2 class="mb-4">Welcome to <span class="flaticon-pizza"> <?php echo get_field('about_section')['about_us_name']; ?></span></h2>
-    </div>
-    <div>
-      <p><?php echo get_field('about_section')['about_us_text']; ?></p>
-    </div>
-  </div>
-</section>
+<?php get_template_part('template-parts/content-about'); ?>
 
 <section class="ftco-section">
   <div class="container">
@@ -56,7 +46,7 @@ get_header();
       </div>
     </div>
     <div class="row">
-    <?php
+      <?php
 
 // Check rows exists.
 if( have_rows('chef_section') ):
@@ -70,7 +60,7 @@ if( have_rows('chef_section') ):
         $chef_speciality = get_sub_field('chef_speciality');
         $chef_description = get_sub_field('chef_description');
 ?>
-        <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+      <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div class="mb-4 img" style="background-image: url(<?php echo $chef_picture; ?>);"></div>
           <div class="text-center info">
@@ -86,7 +76,7 @@ if( have_rows('chef_section') ):
     // End loop.
       endwhile;
     endif; ?>
-      
+
     </div>
   </div>
 </section>

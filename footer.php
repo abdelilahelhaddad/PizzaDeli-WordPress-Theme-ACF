@@ -73,8 +73,7 @@
 							<ul>
 								<li><span class="icon icon-map-marker"></span><span class="text"><?php the_field('address', 'option'); ?></span></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span class="text"><?php the_field('phone', 'option'); ?></span></a></li>
-								<li><a href="#"><span class="icon icon-envelope"></span><span
-											class="text"><?php the_field('email', 'option'); ?></span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span class="text"><?php the_field('email', 'option'); ?></span></a></li>
 							</ul>
 						</div>
 					</div>
