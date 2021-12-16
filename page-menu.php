@@ -25,7 +25,6 @@ get_header();
 
         <div class="col-md-7 col-sm-12 text-center ftco-animate">
           <h1 class="mb-3 mt-5 bread">Our Menu</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Menu</span></p>
         </div>
 
       </div>
@@ -45,67 +44,41 @@ get_header();
   </div>
   <div class="container-wrap">
     <div class="row no-gutters d-flex">
+
+      <?php
+
+      // Check rows exists.
+      if( have_rows('our_menu', 'option') ):
+
+          // Loop through rows.
+          while( have_rows('our_menu', 'option') ) : the_row();
+
+              // Load sub field value.
+              $image = get_sub_field('image')['url'];
+              $title = get_sub_field('title');
+              $description = get_sub_field('description');
+              $price = get_sub_field('price');
+              $orderLink = get_sub_field('order_link');
+              ?>
+
       <div class="col-lg-4 d-flex ftco-animate">
         <div class="services-wrap d-flex">
-          <a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
+          <a href="#" class="img <?php if(get_row_index() > 3) echo 'order-lg-last'; ?>"
+            style="background-image: url(<?php echo $image; ?>);"></a>
           <div class="text p-4">
-            <h3>Italian Pizza</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 d-flex ftco-animate">
-        <div class="services-wrap d-flex">
-          <a href="#" class="img" style="background-image: url(images/pizza-2.jpg);"></a>
-          <div class="text p-4">
-            <h3>Greek Pizza</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 d-flex ftco-animate">
-        <div class="services-wrap d-flex">
-          <a href="#" class="img" style="background-image: url(images/pizza-3.jpg);"></a>
-          <div class="text p-4">
-            <h3>Caucasian Pizza</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+            <h3><?php echo $title; ?></h3>
+            <p><?php echo $description; ?> </p>
+            <p class="price"><span>$<?php echo $price; ?></span> <a href="<?php echo $orderLink; ?>"
+                class="ml-2 btn btn-white btn-outline-white">Order</a></p>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-4 d-flex ftco-animate">
-        <div class="services-wrap d-flex">
-          <a href="#" class="img order-lg-last" style="background-image: url(images/pizza-4.jpg);"></a>
-          <div class="text p-4">
-            <h3>American Pizza</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 d-flex ftco-animate">
-        <div class="services-wrap d-flex">
-          <a href="#" class="img order-lg-last" style="background-image: url(images/pizza-5.jpg);"></a>
-          <div class="text p-4">
-            <h3>Tomatoe Pie</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 d-flex ftco-animate">
-        <div class="services-wrap d-flex">
-          <a href="#" class="img order-lg-last" style="background-image: url(images/pizza-6.jpg);"></a>
-          <div class="text p-4">
-            <h3>Margherita</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-          </div>
-        </div>
-      </div>
+      <?php
+          // End loop.
+          endwhile;
+      endif; ?>
+
     </div>
   </div>
 
@@ -227,7 +200,8 @@ get_header();
 <section class="ftco-menu">
   <div class="container-fluid">
     <div class="row d-md-flex">
-      <div class="col-lg-4 ftco-animate img f-menu-img mb-5 mb-md-0" style="background-image: url(images/about.jpg);">
+      <div class="col-lg-4 ftco-animate img f-menu-img mb-5 mb-md-0"
+        style="background-image: url(<?php echo get_template_directory_uri().'/images/about.jpg'?>);">
       </div>
       <div class="col-lg-8 ftco-animate p-md-5">
         <div class="row">
