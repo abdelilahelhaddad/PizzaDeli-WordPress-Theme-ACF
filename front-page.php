@@ -30,7 +30,7 @@ get_header();
     <div class="overlay"></div>
     <div class="container">
       <div class="row slider-text align-items-center" data-scrollax-parent="true">
-        <div class="col-md-6 col-sm-12 ftco-animate <?php if(get_row_index() % 2 ==0) echo 'order-md-last';?>">
+        <div class="col-md-6 col-sm-12 ftco-animate <?php if(get_row_index() % 2 == 0) echo 'order-md-last';?>">
           <span class="subheading"><?php echo $subTitle; ?></span>
           <h1 class="mb-4"><?php echo $title; ?></h1>
           <p class="mb-4 mb-md-5"><?php echo $description; ?></p>
@@ -73,54 +73,37 @@ get_header();
       </div>
     </div>
     <div class="row d-flex">
+      <?php 
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3
+      );
+
+      $the_query = new WP_Query( $args );
+
+      if ( $the_query->have_posts() ) :
+        while ( $the_query->have_posts() ) : $the_query->the_post();
+      ?>
       <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
           <a href="blog-single.html" class="block-20"
-            style="background-image: url(<?php echo get_template_directory_uri().'/images/image_1.jpg'?>);">
+            style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
           </a>
           <div class="py-4 text d-block">
             <div class="meta">
-              <div><a href="#">Sept 10, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+              <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
+              <div><a href="#"><?php the_author(); ?></a></div>
+              <!-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
             </div>
-            <h3 class="mt-2 heading"><a href="#">The Delicious Pizza</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
+            <p><?php the_excerpt(); ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
-            style="background-image: url(<?php echo get_template_directory_uri().'/images/image_2.jpg'?>);">
-          </a>
-          <div class="py-4 text d-block">
-            <div class="meta">
-              <div><a href="#">Sept 10, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-            <h3 class="mt-2 heading"><a href="#">The Delicious Pizza</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
-            style="background-image: url(<?php echo get_template_directory_uri().'/images/image_3.jpg'?>);">
-          </a>
-          <div class="py-4 text d-block">
-            <div class="meta">
-              <div><a href="#">Sept 10, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-            <h3 class="mt-2 heading"><a href="#">The Delicious Pizza</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-          </div>
-        </div>
-      </div>
+      <?php 
+endwhile;
+endif;
+?>
     </div>
   </div>
 </section>
