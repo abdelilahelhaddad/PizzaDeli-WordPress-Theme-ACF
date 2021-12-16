@@ -236,5 +236,11 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Informations',
 		'parent_slug'	=> 'pizzadeli-settings',
 	));
+
+		acf_add_options_sub_page(array(
+		'page_title' 	=> 'Sliders Settings',
+		'menu_title'	=> 'Sliders',
+		'parent_slug'	=> 'pizzadeli-settings',
+	));
 	
 }
