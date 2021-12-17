@@ -93,7 +93,6 @@ get_header();
             <div class="meta">
               <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
               <div><a href="#"><?php the_author(); ?></a></div>
-              <!-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
             </div>
             <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
             <p><?php the_excerpt(); ?></p>

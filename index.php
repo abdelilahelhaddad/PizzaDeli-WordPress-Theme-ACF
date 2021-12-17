@@ -45,7 +45,7 @@ get_header();
       $the_query= new WP_Query(array(
         'post_type' => 'post',
         'paged' => $paged,
-    ));
+      ));
 
       if ( $the_query->have_posts() ) :
         while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -59,7 +59,6 @@ get_header();
             <div class="meta">
               <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
               <div><a href="#"><?php the_author(); ?></a></div>
-              <!-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
             </div>
             <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
             <p><?php the_excerpt(); ?></p>
@@ -67,10 +66,10 @@ get_header();
         </div>
       </div>
       <?php 
-  endwhile;
-  $total_pages = $the_query->max_num_pages;
+      endwhile;
+      $total_pages = $the_query->max_num_pages;
 
-    if ($total_pages > 1){
+      if ($total_pages > 0){
 
         $current_page = max(1, get_query_var('paged'));
 
@@ -82,11 +81,10 @@ get_header();
             'prev_text'    => __('<'),
             'next_text'    => __('>'),
         ));
-    }
-    ?>
+      }
+      ?>
 
     </div>
-
 
     <div class="mt-5 row">
       <div class="text-center col">
@@ -105,5 +103,4 @@ get_header();
 </section>
 
 <?php
-// get_sidebar();
 get_footer();
