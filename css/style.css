@@ -12380,6 +12380,23 @@ textarea.form-control {
   margin: 0;
 }
 
+.page-numbers {
+  color: #fac564;
+  text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid #bf7e06;
+}
+
+.page-numbers.current {
+  background: #fac564;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
 .block-27 ul li {
   display: inline-block;
   margin-bottom: 4px;
