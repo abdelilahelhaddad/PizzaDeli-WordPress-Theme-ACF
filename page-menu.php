@@ -16,9 +16,10 @@
 get_header();
 ?>
 
-<section class="home-slider owl-carousel img" style="background-image: url(images/bg_1.jpg);">
+<section class="home-slider owl-carousel img"
+  style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
 
-  <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
+  <div class="slider-item" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
     <div class="overlay"></div>
     <div class="container">
       <div class="row slider-text justify-content-center align-items-center">
@@ -37,8 +38,6 @@ get_header();
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section ftco-animate text-center">
         <h2 class="mb-4">Our Menu</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind
-          texts.</p>
       </div>
     </div>
   </div>

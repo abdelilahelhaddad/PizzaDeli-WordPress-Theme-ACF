@@ -11,9 +11,9 @@ get_header();
 ?>
 
 <section class="home-slider owl-carousel img"
-  style="background-image: url(<?php echo get_template_directory_uri().'/images/bg_1.jpg'?>);">
+  style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
 
-  <div class="slider-item" style="background-image: url(<?php echo get_template_directory_uri().'/images/bg_3.jpg'?>);">
+  <div class="slider-item" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
     <div class="overlay"></div>
     <div class="container">
       <div class="row slider-text justify-content-center align-items-center">

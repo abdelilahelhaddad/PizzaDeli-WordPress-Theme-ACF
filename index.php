@@ -15,15 +15,15 @@
 get_header();
 ?>
 <section class="home-slider owl-carousel img"
-  style="background-image: url(<?php echo get_template_directory_uri().'/images/bg_1.jpg'?>);">
+  style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
 
-  <div class="slider-item" style="background-image: url(<?php echo get_template_directory_uri().'/images/bg_3.jpg'?>);">
+  <div class="slider-item" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
     <div class="overlay"></div>
     <div class="container">
       <div class="row slider-text justify-content-center align-items-center">
 
         <div class="text-center col-md-7 col-sm-12 ftco-animate">
-          <h1 class="mt-5 mb-3 bread">Read our Blog</h1>
+          <h1 class="mt-5 mb-3 bread"><?php single_post_title(); ?></h1>
         </div>
 
       </div>
@@ -52,15 +52,15 @@ get_header();
       ?>
       <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
+          <a href="<?php the_permalink(); ?>" class="block-20"
             style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
           </a>
           <div class="py-4 text d-block">
             <div class="meta">
-              <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
-              <div><a href="#"><?php the_author(); ?></a></div>
+              <div><?php the_date( 'M j, Y' ); ?></div>
+              <div><?php the_author_posts_link(); ?></div>
             </div>
-            <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
+            <h3 class="mt-2 heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php the_excerpt(); ?></p>
           </div>
         </div>
