@@ -36,7 +36,7 @@ get_header();
         <p><?php the_content(); ?></p>
         <div class="mt-5 mb-5 tag-widget post-tag-container">
           <?php 
-            $tags = get_tags();
+            $tags = wp_get_post_tags(get_the_ID());
             $html = '<div class="tagcloud">';
             foreach ( $tags as $tag ) {
                 $tag_link = get_tag_link( $tag->term_id );
@@ -49,15 +49,19 @@ get_header();
         </div>
 
         <div class="about-author d-flex">
+          <?php 
+              $post_id = $post->ID;
+              $author_id = get_post_field( 'post_author', $post_id);
+              $author_firstname = get_the_author_meta( 'user_firstname', $author_id ); 
+              $author_lastname = get_the_author_meta( 'user_lastname', $author_id ); 
+              $author_description = get_the_author_meta( 'user_description', $author_id ); 
+              ?>
           <div class="mr-5 bio align-self-md-center">
-            <img src="<?php echo get_template_directory_uri().'/images/person_4.jpg'?>" alt="Image placeholder"
-              class="mb-4 img-fluid">
+            <img src="<?php echo get_avatar_url($author_id); ?>" alt="Image placeholder" class="mb-4 img-fluid">
           </div>
           <div class="desc align-self-md-center">
-            <h3>Lance Smith</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus
-              voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique,
-              inventore eos fugit cupiditate numquam!</p>
+            <h3><?php echo $author_firstname .' '. $author_lastname; ?></h3>
+            <p><?php echo $author_description; ?></p>
           </div>
         </div>
 
@@ -81,7 +85,7 @@ get_header();
             foreach ( $categories as $category ) {
                 $category_link = get_category_link( $category->term_id );
                 $html .= "<li><a href='{$category_link}'>";
-                $html .= "{$category->name}<span>(12)</span></a></li>";
+                $html .= "{$category->name}<span>($category->count)</span></a></li>";
             }
             $html .= '</div>';
             echo $html;
@@ -111,7 +115,7 @@ get_header();
               </div>
             </div>
           </div>
-          <?php endforeach; ?>
+          <?php endforeach; wp_reset_postdata(); ?>
         </div>
       </div>
 
