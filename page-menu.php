@@ -24,8 +24,8 @@ get_header();
     <div class="container">
       <div class="row slider-text justify-content-center align-items-center">
 
-        <div class="col-md-7 col-sm-12 text-center ftco-animate">
-          <h1 class="mb-3 mt-5 bread">Our Menu</h1>
+        <div class="text-center col-md-7 col-sm-12 ftco-animate">
+          <h1 class="mt-5 mb-3 bread"><?php the_title(); ?></h1>
         </div>
 
       </div>
@@ -49,8 +49,6 @@ get_header();
       <div class="col-md-7 heading-section text-center ftco-animate">
         <h2 class="mb-4">Our Menu Pricing</h2>
         <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-        <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-          live the blind texts.</p>
       </div>
     </div>
     <div class="row">

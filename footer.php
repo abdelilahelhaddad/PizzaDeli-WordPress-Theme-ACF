@@ -49,8 +49,8 @@
             <div class="text">
               <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> <?php the_date( 'M j, Y' ); ?></a></div>
-                <div><a href="#"><span class="icon-person"></span> <?php the_author(); ?></a></div>
+                <div><span class="icon-calendar"></span> <?php the_date( 'M j, Y' ); ?></div>
+                <div><span class="icon-person"></span> <?php the_author(); ?></div>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ wp_reset_postdata();
       </div>
       <div class="mb-5 col-lg-2 col-md-6 mb-md-5">
         <div class="mb-4 ftco-footer-widget ml-md-4">
-          <h2 class="ftco-heading-2">IMPORTANT LINKS:</h2>
+          <h2 class="ftco-heading-2">Site Links:</h2>
           <ul class="list-unstyled">
             <li><a href="<?php echo site_url('/about'); ?>" class="py-2 d-block">About</a></li>
             <li><a href="<?php echo site_url('/menu'); ?>" class="py-2 d-block">Menu</a></li>
@@ -99,6 +99,7 @@ wp_reset_postdata();
           </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by
           <a href="https://colorlib.com" target="_blank">Colorlib</a>
           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        <p>Converted To WordPress By <a href="https://abdelilahelhaddad.com/">Abdelilah</a></p>
         </p>
       </div>
     </div>

@@ -16,15 +16,16 @@
 get_header();
 ?>
 
-<section class="home-slider owl-carousel img" style="background-image: url(images/bg_1.jpg);">
+<section class="home-slider owl-carousel img"
+  style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
 
-  <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
+  <div class="slider-item" style="background-image: url(<?php if ( has_post_thumbnail() ) the_post_thumbnail_url()?>);">
     <div class="overlay"></div>
     <div class="container">
       <div class="row slider-text justify-content-center align-items-center">
 
         <div class="text-center col-md-7 col-sm-12 ftco-animate">
-          <h1 class="mt-5 mb-3 bread">Contact Us</h1>
+          <h1 class="mt-5 mb-3 bread"><?php the_title(); ?></h1>
         </div>
 
       </div>
@@ -41,16 +42,19 @@ get_header();
             <h2 class="h4">Contact Information</h2>
           </div>
           <div class="mb-3 col-md-12">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span>Address:</span> <?php the_field('address', 'option'); ?></p>
           </div>
           <div class="mb-3 col-md-12">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span>Phone:</span> <a
+                href="tel://<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a></p>
           </div>
           <div class="mb-3 col-md-12">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+            <p><span>Email:</span> <a
+                href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></p>
           </div>
           <div class="mb-3 col-md-12">
-            <p><span>Website:</span> <a href="#">yoursite.com</a></p>
+            <p><span>Website:</span> <a
+                href="<?php the_field('website', 'option'); ?>"><?php the_field('website', 'option'); ?></a></p>
           </div>
         </div>
       </div>
