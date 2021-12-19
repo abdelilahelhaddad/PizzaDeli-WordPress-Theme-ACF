@@ -86,7 +86,7 @@ get_header();
       ?>
       <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
+          <a href="<?php the_permalink(); ?>" class="block-20"
             style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
           </a>
           <div class="py-4 text d-block">
@@ -94,7 +94,7 @@ get_header();
               <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
               <div><a href="#"><?php the_author(); ?></a></div>
             </div>
-            <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
+            <h3 class="mt-2 heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php the_excerpt(); ?></p>
           </div>
         </div>
@@ -102,6 +102,7 @@ get_header();
       <?php 
 endwhile;
 endif;
+wp_reset_postdata();
 ?>
     </div>
   </div>
