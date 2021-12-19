@@ -7,29 +7,22 @@
  * @package PizzaDeli
  */
 
+get_header();
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			pizzadeli_posted_on();
-			pizzadeli_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php pizzadeli_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php pizzadeli_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<?php if ( 'post' === get_post_type() ) : ?>
+<div class="col-md-4 d-flex ftco-animate">
+  <div class="blog-entry align-self-stretch">
+    <a href="blog-single.html" class="block-20"
+      style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+    </a>
+    <div class="py-4 text d-block">
+      <div class="meta">
+        <div><a href="#"> <?php the_date( 'M j, Y' ); ?></a></div>
+        <div><a href="#"><?php the_author(); ?></a></div>
+      </div>
+      <h3 class="mt-2 heading"><a href="#"><?php the_title(); ?></a></h3>
+      <p><?php the_excerpt(); ?></p>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

@@ -260,3 +260,18 @@ function new_excerpt_more( $more ) {
 	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+function wpbsearchform( $form ) {
+   
+	$form = '<form action="' . home_url( '/' ) . '" class="search-form">
+   <div class="form-group">
+	 <div class="icon">
+		 <span class="icon-search"></span>
+	 </div>
+	 <input type="text" class="form-control" value="' . get_search_query() . '" name="s" id="s" placeholder="Search...">
+ </div>
+</form>';
+	return $form;
+}
+ 
+add_shortcode('wpbsearch', 'wpbsearchform');

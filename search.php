@@ -10,20 +10,21 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
+  <section class="ftco-section">
+    <div class="container">
+      <?php if ( have_posts() ) : ?>
 
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
+      <header class="page-header">
+        <h1 class="page-title">
+          <?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'pizzadeli' ), '<span>' . get_search_query() . '</span>' );
 					?>
-				</h1>
-			</header><!-- .page-header -->
-
-			<?php
+        </h1>
+      </header><!-- .page-header -->
+      <div class="row d-flex mt-5">
+        <?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -45,9 +46,10 @@ get_header();
 
 		endif;
 		?>
-
-	</main><!-- #main -->
+      </div>
+    </div>
+  </section>
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
