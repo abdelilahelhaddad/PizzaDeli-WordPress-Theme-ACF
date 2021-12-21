@@ -57,8 +57,8 @@ get_header();
           </a>
           <div class="py-4 text d-block">
             <div class="meta">
-              <div><?php the_date( 'M j, Y' ); ?></div>
-              <div><?php the_author_posts_link(); ?></div>
+              <div><span class="icon-calendar"></span> <?php the_date( 'M j, Y' ); ?></div>
+              <div><span class="icon-person"></span> <?php the_author_posts_link(); ?></div>
             </div>
             <h3 class="mt-2 heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php the_excerpt(); ?></p>
