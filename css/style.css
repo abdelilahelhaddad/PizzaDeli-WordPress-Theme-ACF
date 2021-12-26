@@ -10686,7 +10686,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled.awake {
-  margin-top: 31px;
+  margin-top: 0px;
   -webkit-transition: .3s all ease-out;
   -o-transition: .3s all ease-out;
   transition: .3s all ease-out;
