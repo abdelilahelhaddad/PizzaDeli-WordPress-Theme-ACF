@@ -45,7 +45,7 @@
       ?>
           <div class="mb-4 block-21 d-flex">
             <a href="<?php the_permalink(); ?>" class="mr-4 blog-img"
-              style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></a>
+              style="background-image: url(<?php echo esc_url(get_the_post_thumbnail_url()); ?>);"></a>
             <div class="text">
               <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <div class="meta">
@@ -66,10 +66,10 @@ wp_reset_postdata();
         <div class="mb-4 ftco-footer-widget ml-md-4">
           <h2 class="ftco-heading-2">Site Links:</h2>
           <ul class="list-unstyled">
-            <li><a href="<?php echo site_url('/about'); ?>" class="py-2 d-block">About</a></li>
-            <li><a href="<?php echo site_url('/menu'); ?>" class="py-2 d-block">Menu</a></li>
-            <li><a href="<?php echo site_url('/blog'); ?>" class="py-2 d-block">Blog</a></li>
-            <li><a href="<?php echo site_url('/contact'); ?>" class="py-2 d-block">Contact Us</a></li>
+            <li><a href="<?php echo esc_url( site_url('/about') ); ?>" class="py-2 d-block">About</a></li>
+            <li><a href="<?php echo esc_url( site_url('/menu') ); ?>" class="py-2 d-block">Menu</a></li>
+            <li><a href="<?php echo esc_url( site_url('/blog') ); ?>" class="py-2 d-block">Blog</a></li>
+            <li><a href="<?php echo esc_url( site_url('/contact') ); ?>" class="py-2 d-block">Contact Us</a></li>
           </ul>
         </div>
       </div>

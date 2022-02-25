@@ -49,7 +49,7 @@ get_header();
       <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
           <a href="<?php the_permalink(); ?>" class="block-20"
-            style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+            style="background-image: url(<?php echo esc_url(get_the_post_thumbnail_url()); ?>);">
           </a>
           <div class="py-4 text d-block">
             <div class="meta">
@@ -70,12 +70,12 @@ get_header();
         $current_page = max(1, get_query_var('paged'));
 
         $pagin = paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
+            'base' => esc_url(get_pagenum_link(1)) . '%_%',
             'format' => '/page/%#%',
             'current' => $current_page,
             'total' => $total_pages,
-            'prev_text'    => __('<'),
-            'next_text'    => __('>'),
+            'prev_text'    => esc_html__('<'),
+            'next_text'    => esc_html__('>'),
         ));
       }
       ?>
@@ -88,7 +88,7 @@ get_header();
           <ul>
             <?php echo $pagin; ?>
             <?php else :?>
-            <h3><?php _e('404 Error&#58; Not Found', ''); ?></h3>
+            <h3><?php esc_html_e('404 Error&#58; Not Found', ''); ?></h3>
             <?php endif; ?>
             <?php wp_reset_postdata();?>
           </ul>

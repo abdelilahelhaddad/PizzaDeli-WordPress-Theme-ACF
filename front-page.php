@@ -31,15 +31,16 @@ get_header();
     <div class="container">
       <div class="row slider-text align-items-center" data-scrollax-parent="true">
         <div class="col-md-6 col-sm-12 ftco-animate <?php if(get_row_index() % 2 == 0) echo 'order-md-last';?>">
-          <span class="subheading"><?php echo $subTitle; ?></span>
-          <h1 class="mb-4"><?php echo $title; ?></h1>
-          <p class="mb-4 mb-md-5"><?php echo $description; ?></p>
-          <p><a href="<?php echo site_url('/contact'); ?>" class="p-3 btn btn-primary px-xl-4 py-xl-3">Order Now</a> <a
-              href="<?php echo site_url('/menu'); ?>" class="p-3 btn btn-white btn-outline-white px-xl-4 py-xl-3">View
+          <span class="subheading"><?php echo esc_html($subTitle); ?></span>
+          <h1 class="mb-4"><?php echo esc_html($title); ?></h1>
+          <p class="mb-4 mb-md-5"><?php echo esc_html($description); ?></p>
+          <p><a href="<?php echo esc_url(site_url('/contact')); ?>" class="p-3 btn btn-primary px-xl-4 py-xl-3">Order
+              Now</a> <a href="<?php echo esc_url(site_url('/menu')); ?>"
+              class="p-3 btn btn-white btn-outline-white px-xl-4 py-xl-3">View
               Menu</a></p>
         </div>
         <div class="col-md-6 ftco-animate">
-          <img src="<?php echo $image; ?>" class="img-fluid" alt="<?php echo $title; ?>">
+          <img src="<?php echo esc_url($image); ?>" class="img-fluid" alt="<?php echo esc_html($title); ?>">
         </div>
       </div>
     </div>
@@ -87,7 +88,7 @@ get_header();
       <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
           <a href="<?php the_permalink(); ?>" class="block-20"
-            style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+            style="background-image: url(<?php echo esc_url(get_the_post_thumbnail_url()); ?>);">
           </a>
           <div class="py-4 text d-block">
             <div class="meta">

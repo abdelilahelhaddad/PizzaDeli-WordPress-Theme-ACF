@@ -39,7 +39,7 @@ get_header();
             $tags = wp_get_post_tags(get_the_ID());
             $html = '<div class="tagcloud">';
             foreach ( $tags as $tag ) {
-                $tag_link = get_tag_link( $tag->term_id );
+                $tag_link = esc_url(get_tag_link( $tag->term_id ));
                 $html .= "<a href='{$tag_link}' class='tag-cloud-link'>";
                 $html .= "{$tag->name}</a>";
             }
@@ -57,11 +57,12 @@ get_header();
               $author_description = get_the_author_meta( 'user_description', $author_id ); 
               ?>
           <div class="mr-5 bio align-self-md-center">
-            <img src="<?php echo get_avatar_url($author_id); ?>" alt="Image placeholder" class="mb-4 img-fluid">
+            <img src="<?php echo esc_url(get_avatar_url($author_id)); ?>" alt="Image placeholder"
+              class="mb-4 img-fluid">
           </div>
           <div class="desc align-self-md-center">
-            <h3><?php echo $author_firstname .' '. $author_lastname; ?></h3>
-            <p><?php echo $author_description; ?></p>
+            <h3><?php echo esc_html($author_firstname) .' '. esc_html($author_lastname); ?></h3>
+            <p><?php echo esc_html($author_description); ?></p>
           </div>
         </div>
 
@@ -84,7 +85,7 @@ get_header();
             $categories = get_categories();
             $html = '<div class="categories">';
             foreach ( $categories as $category ) {
-                $category_link = get_category_link( $category->term_id );
+                $category_link = esc_url(get_category_link( $category->term_id ));
                 $html .= "<li><a href='{$category_link}'>";
                 $html .= "{$category->name}<span>($category->count)</span></a></li>";
             }
@@ -102,16 +103,17 @@ get_header();
             ));
             foreach( $recent_posts as $post_item ) : ?>
           <div class="mb-4 block-21 d-flex">
-            <a href="<?php echo get_permalink($post_item['ID']); ?>" class="mr-4 blog-img"
-              style="background-image: url(<?php echo get_the_post_thumbnail_url($post_item['ID']);?>);"></a>
+            <a href="<?php echo esc_url(get_permalink($post_item['ID'])); ?>" class="mr-4 blog-img"
+              style="background-image: url(<?php echo esc_url(get_the_post_thumbnail_url($post_item['ID']));?>);"></a>
             <div class="text">
               <h3 class="heading"><a
-                  href="<?php echo get_permalink($post_item['ID']); ?>"><?php echo $post_item['post_title']; ?></a>
+                  href="<?php echo esc_url( get_permalink($post_item['ID'])); ?>"><?php echo $post_item['post_title']; ?></a>
               </h3>
               <div class="meta">
-                <div><span class="icon-calendar"></span> <?php echo get_the_date( 'M j, Y', $post_item['ID'] ); ?></div>
+                <div><span class="icon-calendar"></span>
+                  <?php echo esc_html(get_the_date( 'M j, Y', $post_item['ID'] )); ?></div>
                 <div><span class="icon-person"></span>
-                  <?php echo get_the_author_meta( 'user_firstname', $post_item['post_author']); ?>
+                  <?php echo esc_html(get_the_author_meta( 'user_firstname', $post_item['post_author'])); ?>
                 </div>
               </div>
             </div>

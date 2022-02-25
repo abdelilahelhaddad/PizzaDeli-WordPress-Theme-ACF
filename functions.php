@@ -263,7 +263,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function wpbsearchform( $form ) {
    
-	$form = '<form action="' . home_url( '/' ) . '" class="search-form">
+	$form = '<form action="' . esc_url(home_url( '/' )) . '" class="search-form">
    <div class="form-group">
 	 <div class="icon">
 		 <span class="icon-search"></span>
